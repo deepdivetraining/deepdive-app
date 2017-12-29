@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-getUpcomingCourses = () => Meteor.call('Courses.getUpcoming');
+// Import models
+import Courses from '../models/Courses.js';
+
+// getUpcomingCourses :: Callback Function => State Object
+getUpcomingCourses = (cb) => Meteor.call('Courses.getUpcoming', cb);
 
 class UpcomingCourses extends Component {
 
   render() {
-    console.log('UpcomingCourses render')
     return (
       <div style={s.base}>
 
@@ -28,7 +31,12 @@ var s = {
 }
 
 export default withTracker((props) => {
-  return {
+  Meteor.subscribe('Courses.all');
 
+  return {
+    upcomingCourses: Courses.find({
+      'datePublishedStart': { $lte: new Date() },
+      'datePublishedEnd': { $gte: new Date() }
+    }, {sort: {dateStart: 1}}).fetch()
   }
-}, UpcomingCourses);
+})(UpcomingCourses);
