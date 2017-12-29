@@ -2,3 +2,4 @@ ecmascript
 kadira:flow-router
 mongo
 meteor
+react-meteor-data

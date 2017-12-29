@@ -31,8 +31,17 @@ h2 {
   margin: 15px;
 }
 
+/* helpers */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+/* .. */
+
 .block {
-  max-width: 200px;
   height: 300px;
   text-align:left;
   padding: 10px 20px;
