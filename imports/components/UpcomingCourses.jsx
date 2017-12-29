@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
+import R from 'ramda';
 
 // Import models
 import Courses from '../models/Courses.js';
 
-// getUpcomingCourses :: Callback Function => State Object
-getUpcomingCourses = (cb) => Meteor.call('Courses.getUpcoming', cb);
+// Import componets
+import Course from './Course';
 
 class UpcomingCourses extends Component {
 
+  renderCourse(course) {
+    return <Course key={course._id} course={course} />
+  }
+
   render() {
+
     return (
-      <div style={s.base}>
-
-        <article className="block">
-          <header></header>
-          <strong>BRAIN PICKING ABOUT BLOCKCHAIN</strong>
-          <p>During this event we will create, share and build a qualified idea with a very high potential for success. Free event.</p>
-          <p><a className="btn" href="https://www.meetup.com/SIFUtrecht/events/245829036/" target="_blank">Sign up for December 19th</a></p>
-        </article>
-
+      <div className="grid" style={s.base}>
+        {R.map(this.renderCourse, this.props.upcomingCourses)}
       </div>
     );
   }
@@ -28,6 +27,10 @@ class UpcomingCourses extends Component {
 var s = {
   base: {
   },
+}
+
+Courses.defaultProps = {
+  upcomingCourses: {}
 }
 
 export default withTracker((props) => {
