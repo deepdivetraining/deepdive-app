@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { withTracker } from 'meteor/react-meteor-data';
 
 getUpcomingCourses = () => Meteor.call('Courses.getUpcoming');
 
-export default class UpcomingCourses extends Component {
+class UpcomingCourses extends Component {
 
   render() {
-    return <div />
+    console.log('UpcomingCourses render')
     return (
       <div style={s.base}>
 
@@ -25,3 +26,9 @@ var s = {
   base: {
   },
 }
+
+export default withTracker((props) => {
+  return {
+
+  }
+}, UpcomingCourses);

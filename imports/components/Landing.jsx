@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UpcomingCourses from '../UpcomingCourses/UpcomingCourses';
+import UpcomingCourses from './UpcomingCourses';
 
 export default class Landing extends Component {
  
