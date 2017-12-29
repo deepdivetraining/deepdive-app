@@ -50,6 +50,9 @@ h2 {
   position: relative;
   float:left;
 }
+.block img {
+  max-height: 100px;
+}
 .block strong {
   display: block;
   margin-bottom: 10px;

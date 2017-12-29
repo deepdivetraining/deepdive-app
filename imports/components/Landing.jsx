@@ -39,6 +39,36 @@ export default class Landing extends Component {
           </form>
         </div>
 
+        <hr />
+
+        <h2>Team</h2>
+
+        <div class="grid">
+
+          <article className="block">
+            <header><img src="https://media.licdn.com/media/AAEAAQAAAAAAAAvCAAAAJDA5MDU0ZjJiLTkxYWYtNGM0Ni05ODNmLTQ0YTEzYzVjNzZmNQ.jpg" /></header>
+            <strong>Bart Roorda</strong>
+            <p>#software #opensource #web #blockchain #redecentralize #collaboration</p>
+            <p>
+              <a className="btn" href="http://bartroorda.nl/contact" target="_blank">
+                website
+              </a>
+            </p>
+          </article>
+
+          <article className="block">
+            <header><img src="https://media.licdn.com/media/AAIA_wDGAAAAAQAAAAAAAAsDAAAAJDdlOWM1ZDg2LTQxZDAtNGU2NC05ODI1LTZhZDFiN2U2M2M0OA.jpg" /></header>
+            <strong>Marc</strong>
+            <p>Industrial, IOT and blockchain software development & consultancy</p>
+            <p>
+              <a className="btn" href="https://www.linkedin.com/in/mosbuma/" target="_blank">
+                linkedin
+              </a>
+            </p>
+          </article>
+
+        </div>
+
       </div>
     );
   }
