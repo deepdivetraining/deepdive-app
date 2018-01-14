@@ -43,7 +43,7 @@ export default class Landing extends Component {
 
         <h2>Team</h2>
 
-        <div class="grid">
+        <div className="grid">
 
           <article className="block">
             <header><img src="https://media.licdn.com/media/AAEAAQAAAAAAAAvCAAAAJDA5MDU0ZjJiLTkxYWYtNGM0Ni05ODNmLTQ0YTEzYzVjNzZmNQ.jpg" /></header>
