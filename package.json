@@ -2,11 +2,13 @@
   "name": "app",
   "private": true,
   "scripts": {
+    "dev": "meteor",
     "start": "meteor run"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "bcrypt": "^1.0.3",
+    "buttercms": "^1.1.0",
     "meteor-node-stubs": "^0.3.2",
     "ramda": "^0.25.0",
     "react": "^16.2.0",
