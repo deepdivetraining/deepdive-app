@@ -16,7 +16,7 @@ class Course extends Component {
       <article style={s.base}>
 
         <header>
-        <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/blockchainis.jpg" />
+          <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/blockchainis.jpg" />
         </header>
 
         <h3>

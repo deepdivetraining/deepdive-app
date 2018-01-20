@@ -9,6 +9,9 @@ Courses.publicFields = {
     buttonText: 1,
     optionalExternalUrl: 1
   },
+  details: {
+    text: 1
+  },
   dates: 1
 }
 
