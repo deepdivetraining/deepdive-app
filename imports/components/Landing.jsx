@@ -38,15 +38,11 @@ export default class Landing extends Component {
                 Industrial, IOT and blockchain software development & consultant.
               </p>
               <p>
-                <a href="https://www.linkedin.com/in/mosbuma/" target="_blank">linkedin.com/in/mosbuma</a>
+                <a href="https://www.linkedin.com/in/mosbuma/" target="_blank">linkedin</a>
               </p>
             </article>
 
           </div>
-
-          <a hidden onClick={Accounts.logout}>
-            Log out
-          </a>
 
         </div>
       </div>

@@ -28,6 +28,8 @@ hr {
 }
 a {
   text-decoration: none;
+  color: #0f478a;
+  display: inline-block;
 }
 
 h1,
@@ -51,7 +53,7 @@ h3 {
 }
 
 p {
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 img {
@@ -63,6 +65,7 @@ img {
 .page-inner {
   width: 920px;
   margin: 0 auto;
+  max-width: 100%;
 }
 
 .page-module {
