@@ -23,10 +23,19 @@ class UserBar extends Component {
 class Header extends Component {
 
   render() {
-    let renderthis = Meteor.userId() ? <UserBar /> : <Accounts.ui.LoginForm /> 
+    {/*let renderthis = Meteor.userId() ? <UserBar /> : <Accounts.ui.LoginForm /> */}
+    let renderthis = Meteor.userId() ? <UserBar /> : ''
     return (
-      <div style={s.base}>
+      <div style={s.base} className="page-module">
+
         {renderthis}
+
+        <h1 style={s.title}>Deep Dive blockchain trainingen</h1>
+
+        <p>
+          Blockchain is changing society. We give <b>Deep Dive blockchain workshops</b>.
+        </p>
+
       </div>
     );
   }
@@ -34,7 +43,12 @@ class Header extends Component {
 
 var s = {
   base: {
+    background: '#000',
+    color: '#fff',
   },
+  title: {
+    marginTop: 0
+  }
 }
 
 export default Header;

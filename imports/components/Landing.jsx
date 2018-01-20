@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
+import { Accounts } from 'meteor/std:accounts-ui';
+
 import UpcomingCourses from './UpcomingCourses';
 
 export default class Landing extends Component {
  
   render() {
     return (
-      <div style={s.base}>
-
-        <h1>Deep Dive blockchain trainingen</h1>
-
-        <p>
-          Blockchain is changing society. We give <b>Deep Dive blockchain workshops</b>.
-        </p>
-
-        <hr />
+      <div style={s.base} className="page-module">
 
         <h2>Upcoming courses</h2>
 
         <UpcomingCourses />
-
-        <hr />
 
         <p>
           Interested in a course on your location? Email <a href="mailto:info@deepdive.training">info@deepdive.training</a>
@@ -45,29 +37,25 @@ export default class Landing extends Component {
 
         <div className="grid">
 
-          <article className="block">
-            <header><img src="https://media.licdn.com/media/AAEAAQAAAAAAAAvCAAAAJDA5MDU0ZjJiLTkxYWYtNGM0Ni05ODNmLTQ0YTEzYzVjNzZmNQ.jpg" /></header>
+          <article>
+            <header hidden><img src="https://media.licdn.com/media/AAEAAQAAAAAAAAvCAAAAJDA5MDU0ZjJiLTkxYWYtNGM0Ni05ODNmLTQ0YTEzYzVjNzZmNQ.jpg" /></header>
             <strong>Bart Roorda</strong>
-            <p>#software #opensource #web #blockchain #redecentralize #collaboration</p>
-            <p>
-              <a className="btn" href="http://bartroorda.nl/contact" target="_blank">
-                website
-              </a>
-            </p>
+            <p></p>
           </article>
 
-          <article className="block">
-            <header><img src="https://media.licdn.com/media/AAIA_wDGAAAAAQAAAAAAAAsDAAAAJDdlOWM1ZDg2LTQxZDAtNGU2NC05ODI1LTZhZDFiN2U2M2M0OA.jpg" /></header>
+          <article>
+            <header hidden><img src="https://media.licdn.com/media/AAIA_wDGAAAAAQAAAAAAAAsDAAAAJDdlOWM1ZDg2LTQxZDAtNGU2NC05ODI1LTZhZDFiN2U2M2M0OA.jpg" /></header>
             <strong>Marc</strong>
-            <p>Industrial, IOT and blockchain software development & consultancy</p>
-            <p>
-              <a className="btn" href="https://www.linkedin.com/in/mosbuma/" target="_blank">
-                linkedin
-              </a>
-            </p>
+            <p></p>
           </article>
 
         </div>
+
+        <hr />
+
+        <a onClick={Accounts.logout}>
+          Log out
+        </a>
 
       </div>
     );

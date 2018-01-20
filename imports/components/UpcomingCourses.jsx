@@ -17,7 +17,7 @@ class UpcomingCourses extends Component {
   render() {
 
     return (
-      <div className="grid" style={s.base}>
+      <div style={s.base}>
         {R.map(this.renderCourse, this.props.upcomingCourses)}
       </div>
     );
@@ -26,6 +26,7 @@ class UpcomingCourses extends Component {
 
 var s = {
   base: {
+    
   },
 }
 
