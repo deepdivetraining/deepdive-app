@@ -17,8 +17,8 @@ body {
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
-  font-size: 20px;
-  line-height: 25px;
+  font-size: 16px;
+  line-height: 24px;
   font-family: 'Roboto', sans-serif;
 }
 hr {
@@ -26,6 +26,9 @@ hr {
   background:#eee;
   border:none;
   margin:30px 0 15px 0;
+}
+a {
+  text-decoration: none;
 }
 
 h1,
@@ -41,6 +44,20 @@ h2 {
   font-size: 25px;
   line-height: 30px;
 }
+h3 {
+  margin: 5px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+p {
+  margin: 10px 0;
+}
+
+img {
+  max-width: 100%;
+}
 
 /* helpers */
 
@@ -49,8 +66,9 @@ h2 {
 }
 
 .grid {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 }
 
@@ -70,18 +88,17 @@ h2 {
 }
 
 .btn {
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
   background: #000;
   color: #fff;
   text-align: center;
   line-height: 30px;
   padding: 0 5px;
-  width:190px;
+  width: 300px;
+  max-width: 100%;
   display: block;
-  margin: 5px auto;
+  margin: 15px 0;
   text-decoration: none;
   font-size:0.8rem;
   font-weight: bold;
+  border: none;
 }

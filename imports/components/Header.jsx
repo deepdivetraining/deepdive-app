@@ -45,6 +45,8 @@ var s = {
   base: {
     background: '#000',
     color: '#fff',
+    fontSize: '20px',
+    lineHeight: '28px'
   },
   title: {
     marginTop: 0

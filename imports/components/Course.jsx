@@ -13,27 +13,40 @@ class Course extends Component {
       : 'mailto:info@deepdive.training?subject=Signup: '+this.props.course.title;
 
     return (
-      <div style={s.base}>
+      <article style={s.base}>
 
-        <article className="block">
-          <header></header>
-          <strong>{this.props.course.title}</strong>
-          <p>{this.props.course.banner.description}</p>
-          <p>
-            <a className="btn" href={buttonUrl} target="_blank">
-              {this.props.course.banner.buttonText}
-            </a>
-          </p>
-        </article>
+        <header>
+        <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/blockchainis.jpg" />
+        </header>
 
-      </div>
+        <h3>
+          {this.props.course.title}
+        </h3>
+
+        <p>
+          {this.props.course.banner.description}
+        </p>
+
+        <a href={buttonUrl} target="_blank" className="btn">
+          {this.props.course.banner.buttonText}
+        </a>
+
+      </article>
     );
   }
 }
 
 var s = {
   base: {
+    minHeight: '300px',
+    width: '100%',
+    margin: '10px 0',
+    position: 'relative',
+    marginBottom: '30px'
   },
+  btn: {
+    display: 'block'
+  }
 }
 
 Course.defaultProps = {
