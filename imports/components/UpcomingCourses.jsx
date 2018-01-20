@@ -26,7 +26,10 @@ class UpcomingCourses extends Component {
 
 var s = {
   base: {
-    
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+    gridTemplateRows: 'auto',
+    gridGap: '15px 15px'
   },
 }
 

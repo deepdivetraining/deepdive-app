@@ -27,15 +27,17 @@ class Header extends Component {
     let renderthis = Meteor.userId() ? <UserBar /> : ''
     return (
       <div style={s.base} className="page-module">
+        <div className="page-inner">
 
-        {renderthis}
+          {renderthis}
 
-        <h1 style={s.title}>Deep Dive blockchain trainingen</h1>
+          <h1 style={s.title}>Deep Dive blockchain trainingen</h1>
 
-        <p>
-          Blockchain is changing society. We give <b>Deep Dive blockchain workshops</b>.
-        </p>
+          <p>
+            Blockchain is changing society. We give <b>Deep Dive blockchain workshops</b>.
+          </p>
 
+        </div>
       </div>
     );
   }

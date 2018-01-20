@@ -27,7 +27,7 @@ class Course extends Component {
           {this.props.course.banner.description}
         </p>
 
-        <a href={buttonUrl} target="_blank" className="btn">
+        <a href={buttonUrl} target="_blank" className="btn" style={s.btn}>
           {this.props.course.banner.buttonText}
         </a>
 
@@ -42,10 +42,13 @@ var s = {
     width: '100%',
     margin: '10px 0',
     position: 'relative',
-    marginBottom: '30px'
+    marginBottom: '30px',
+    paddingBottom: '50px'
   },
   btn: {
-    display: 'block'
+    display: 'block',
+    position: 'absolute',
+    bottom: 0
   }
 }
 

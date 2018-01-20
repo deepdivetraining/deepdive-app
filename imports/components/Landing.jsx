@@ -8,35 +8,47 @@ export default class Landing extends Component {
   render() {
     return (
       <div style={s.base} className="page-module">
+        <div className="page-inner">
 
-        <h2>Upcoming courses</h2>
+          <h2>Upcoming courses</h2>
 
-        <UpcomingCourses />
+          <UpcomingCourses />
 
-        <h2>Trainers</h2>
+          <h2>Trainers</h2>
 
-        <div className="grid">
+          <div className="grid">
 
-          <article>
-            <strong>Bart Roorda</strong>
-            <p>
-              As a software developer, I'm intrigued everyday by the speed of developments in the blockchain space.
-            </p>
-          </article>
+            <article>
+              <h3>
+                Bart Roorda
+              </h3>
+              <p>
+                As a software developer, I'm intrigued everyday by the speed of developments in the blockchain space.
+              </p>
+              <p>
+                <a href="https://bartroorda.nl" target="_blank">bartroorda.nl</a>
+              </p>
+            </article>
 
-          <article>
-            <strong>Marc Buma</strong>
-            <p>
-              Industrial, IOT and blockchain software development & consultant.
-            </p>
-          </article>
+            <article>
+              <h3>
+                Marc Buma
+              </h3>
+              <p>
+                Industrial, IOT and blockchain software development & consultant.
+              </p>
+              <p>
+                <a href="https://www.linkedin.com/in/mosbuma/" target="_blank">linkedin.com/in/mosbuma</a>
+              </p>
+            </article>
+
+          </div>
+
+          <a hidden onClick={Accounts.logout}>
+            Log out
+          </a>
 
         </div>
-
-        <a hidden onClick={Accounts.logout}>
-          Log out
-        </a>
-
       </div>
     );
   }
