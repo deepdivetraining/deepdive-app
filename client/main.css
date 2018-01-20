@@ -1,0 +1,111 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+* {
+  margin:0;
+  padding:0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+hr {
+  height:1px;
+  background:#eee;
+  border:none;
+  margin:30px 0 15px 0;
+}
+a {
+  text-decoration: none;
+  color: #0f478a;
+  display: inline-block;
+}
+
+h1,
+h2 {
+  margin: 15px 0;
+  font-family: 'Alike Angular', serif;
+}
+h1 {
+  font-size: 28px;
+  line-height: 38px;
+}
+h2 {
+  font-size: 25px;
+  line-height: 30px;
+}
+h3 {
+  margin: 5px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+p {
+  margin: 15px 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* helpers */
+
+.page-inner {
+  width: 920px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.page-module {
+  padding: 48px 26px;
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+/* .. */
+
+.block img {
+  max-height: 100px;
+}
+.block strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size:1rem;
+}
+
+.block p {
+  font-size:0.938rem;
+}
+
+.btn {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  padding: 0 5px;
+  width: 300px;
+  max-width: 100%;
+  display: block;
+  margin: 15px 0;
+  text-decoration: none;
+  font-size:0.8rem;
+  font-weight: bold;
+  border: none;
+}
