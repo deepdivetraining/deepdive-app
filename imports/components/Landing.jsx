@@ -26,7 +26,7 @@ export default class Landing extends Component {
                 As a software developer, I'm intrigued everyday by the speed of developments in the blockchain space.
               </p>
               <p>
-                <a href="https://bartroorda.nl" target="_blank">bartroorda.nl</a>
+                <a href="https://www.bartroorda.nl" target="_blank">bartroorda.nl</a>
               </p>
             </article>
 
