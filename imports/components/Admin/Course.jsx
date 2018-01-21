@@ -11,31 +11,26 @@ class Course extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
-  }
-
-  componentWillReceiveProps(newProps) {
-    this.setState(newProps);
+    this.state = props;
   }
 
   // handleChange :: String, Event -> StateChange
   handleChange = (name, e) => {
     this.state.course[name] = e.target.value
-    this.forceUpdate()
   }
 
   // submitForm :: void -> ?
   submitForm = (e) => {
     e.preventDefault();
-    this.saveForm(this.state);
+    this.saveForm(this.state.course);
   }
 
-  saveForm = (data) => Meteor.call('Courses.save', data.course);
+  saveForm = (data) => Meteor.call('Courses.save', data);
 
   // renderInput :: String, Object { styles, extra }
   renderInput = (name, extra) => {
     return <ContentEditable
-            text={this.state[name]}
+            html={this.state.course[name]}
             disabled={false}
             style={s.input}
             onChange={this.handleChange.bind(this, name)}
@@ -43,7 +38,8 @@ class Course extends Component {
   }
 
   render() {
-    console.log('this.state', this.state)
+    console.log('state course', this.state.course)
+    console.log('props course', this.props.course)
     return (
       <form style={s.base} onSubmit={this.submitForm.bind(this)}>
 
@@ -51,39 +47,36 @@ class Course extends Component {
           <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/blockchainis.jpg" />
         </header>
 
-        <label>Header image URL</label>
-        {this.renderInput('headerImage.url')}
-
         <label>Title</label>
-        {this.renderInput('title')}
+        {this.renderInput('title', this.state.course._id)}
+
+        <label>Header image URL</label>
+        {this.renderInput('headerImageUrl', this.state.course._id)}
 
         <fieldset style={s.fieldset}>
 
           <label>datePublishedStart</label>
-          {this.renderInput('datePublishedStart')}
+          {this.renderInput('datePublishedStart', this.state.course._id)}
 
           <label>datePublishedEnd</label>
-          {this.renderInput('datePublishedEnd')}
+          {this.renderInput('datePublishedEnd', this.state.course._id)}
 
         </fieldset>
 
         <fieldset style={s.fieldset}>
 
           <label>Banner description</label>
-          {this.renderInput('banner.description')}
+          {this.renderInput('bannerDescription', this.state.course._id)}
 
           <label>Banner button text</label>
-          {this.renderInput('banner.buttonText')}
+          {this.renderInput('bannerButtonText', this.state.course._id)}
 
         </fieldset>
 
         <fieldset style={s.fieldset}>
 
           <label>Details text</label>
-          {this.renderInput('details.text')}
-
-          <label>Banner button text</label>
-          {this.renderInput('banner.buttonText')}
+          {this.renderInput('detailsText', this.state.course._id)}
 
         </fieldset>
 

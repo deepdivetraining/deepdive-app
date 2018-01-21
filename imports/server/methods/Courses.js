@@ -6,22 +6,16 @@ Meteor.methods({
     if(! Meteor.userId()) return false;
 
     return Courses.update({
-      _id: data == 'new' ? null : data._id
+      _id: data._id == 'new' ? null : data._id
     }, {
       datePublishedStart: data.datePublishedStart,
       datePublishedEnd: data.datePublishedEnd,
       authorId: Meteor.userId(),
       title: data.title,
-      banner: {
-        description: data['banner.description'],
-        buttonText: data['banner.buttonText']
-      },
-      details: {
-        text: data['details.text']
-      },
-      headerImage: {
-        url: data['headerImage.url']
-      }
+      bannerDescription: data['bannerDescription'],
+      bannerButtonText: data['bannerButtonText'],
+      detailsText: data['detailsText'],
+      headerImageUrl: data['headerImageUrl']
     }, {
       upsert: true
     })

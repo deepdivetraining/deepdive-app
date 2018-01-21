@@ -15,11 +15,10 @@ class CourseList extends Component {
   }
 
   render() {
-    console.log(this.props)
-        // {this.props.upcomingCourses.length > 0 ? R.map(this.renderCourse, this.props.upcomingCourses): ''}
     return (
       <div style={s.base}>
         {this.renderCourse({ _id: 'new', title: 'New course' })}
+        {this.props.allCourses.length > 0 ? R.map(this.renderCourse, this.props.allCourses): ''}
       </div>
     );
   }
@@ -35,13 +34,13 @@ var s = {
 }
 
 Courses.defaultProps = {
-  upcomingCourses: []
+  allCourses: []
 }
 
 export default withTracker((props) => {
   Meteor.subscribe('Courses.all');
 
   return {
-    upcomingCourses: Courses.find({}, {sort: {dateStart: 1}}).fetch()
+    allCourses: Courses.find({}, {sort: {dateStart: 1}}).fetch()
   }
 })(CourseList);

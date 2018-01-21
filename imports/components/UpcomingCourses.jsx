@@ -15,7 +15,6 @@ class UpcomingCourses extends Component {
   }
 
   render() {
-
     return (
       <div style={s.base}>
         {R.map(this.renderCourse, this.props.upcomingCourses)}
