@@ -8,7 +8,8 @@ import Courses from '../models/Courses.js';
 class CourseDetails extends Component {
 
   render() {
-    console.log(this.props)
+
+    buttonUrl = 'mailto:info@deepdive.training?subject=Signup: ' + this.props.course.title;
 
     if ( ! this.props.course.title )
       return (<div>Loading course</div>)
@@ -26,10 +27,10 @@ class CourseDetails extends Component {
           </h3>
 
           <p>
-            {this.props.course.details ? this.props.course.details.text : ''}
+            {this.props.course.detailsText}
           </p>
 
-          <a className="btn" style={s.btn}>
+          <a href={buttonUrl} className="btn" style={s.btn}>
             Sign up now
           </a>
 
@@ -61,12 +62,10 @@ CourseDetails.defaultProps = {
 
 export default withTracker((props) => {
 
-  var objectId = new Meteor.Collection.ObjectID(props.courseId);
-
-  Meteor.subscribe('Courses.thisOne', objectId);
+  Meteor.subscribe('Courses.thisOne', props.courseId);
 
   return {
-    course: Courses.findOne(objectId)
+    course: Courses.findOne(props.courseId)
   }
 
 })(CourseDetails);

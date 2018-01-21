@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 import Courses from '/imports/models/Courses.js'
 
 Meteor.methods({
@@ -8,8 +10,8 @@ Meteor.methods({
     return Courses.update({
       _id: data._id == 'new' ? null : data._id
     }, {
-      datePublishedStart: data.datePublishedStart,
-      datePublishedEnd: data.datePublishedEnd,
+      datePublishedStart: new Date(data.datePublishedStart),
+      datePublishedEnd: new Date(data.datePublishedEnd),
       authorId: Meteor.userId(),
       title: data.title,
       bannerDescription: data['bannerDescription'],

@@ -8,10 +8,6 @@ import Courses from '../models/Courses.js';
 class Course extends Component {
 
   render() {
-    buttonUrl = this.props.course.banner.optionalExternalUrl
-      ? this.props.course.banner.optionalExternalUrl
-      : 'mailto:info@deepdive.training?subject=Signup: '+this.props.course.title;
-
     return (
       <article style={s.base}>
 
@@ -24,11 +20,11 @@ class Course extends Component {
         </h3>
 
         <p>
-          {this.props.course.banner.description}
+          {this.props.course.bannerDescription}
         </p>
 
-        <a href={buttonUrl} target="_blank" className="btn" style={s.btn}>
-          {this.props.course.banner.buttonText}
+        <a onClick={() => FlowRouter.go('/c/' + this.props.course._id)} className="btn" style={s.btn}>
+          {this.props.course.bannerButtonText}
         </a>
 
       </article>
