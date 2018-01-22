@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+import { check } from 'meteor/check';
 
 // Import server methods
 import '/imports/server/methods/Courses.js';
@@ -26,17 +27,16 @@ Meteor.methods({
     // without waiting for the email sending to complete.
     this.unblock();
     Email.send(mail);
-  },
-  doFullSync: function () {
-    SyncUtils.fullSync();
   }
 });
 
 Accounts.onCreateUser(function (options, user) {
-  console.log('createUser', options, user);
-
-  // Meteor.call('sendEmail', 
-    // options.email
+  Meteor.call('sendEmail', {
+    to: options.email,
+    from: 'DeepDive.training <info@deepdive.training>',
+    subject: `Welcome to DeepDive.training`,
+    html: '<p>Thank you for signing up. From now you can always login at https://www.deepdive.training using your email address.</p><p>DeepDive.training</p>'
+  });
 
   return user;
 });
