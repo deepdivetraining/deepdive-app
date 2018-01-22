@@ -9,6 +9,11 @@
   margin:0;
   padding:0;
 }
+
+*:focus {
+  outline: none;
+}
+
 html, body {
   height: 100%;
 }
@@ -94,7 +99,7 @@ img {
   font-size:0.938rem;
 }
 
-.btn {
+.btn, .accounts-ui button {
   background: #000;
   color: #fff;
   text-align: center;
@@ -108,4 +113,34 @@ img {
   font-size:0.8rem;
   font-weight: bold;
   border: none;
+  cursor: pointer;
+}
+.accounts-ui button {
+  margin-top:0;
+}
+
+/**
+ * Account forms
+ */
+
+.accounts-ui {
+}
+.accounts-ui .fields {
+}
+.accounts-ui .field {
+}
+.accounts-ui .field label {
+  display: block;
+  font-weight: bold;
+}
+.accounts-ui .field input {
+  border: solid #000 1px;
+  width: 300px;
+  max-width: 100%;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.message.error {
+  color: #f00;
 }

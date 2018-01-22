@@ -17,6 +17,7 @@ class Course extends Component {
   // handleChange :: String, Event -> StateChange
   handleChange = (name, e) => {
     this.state.course[name] = e.target.value
+    this.forceUpdate()
   }
 
   // submitForm :: void -> ?
@@ -29,6 +30,24 @@ class Course extends Component {
 
   // renderInput :: String, Object { styles, extra }
   renderInput = (name, extra) => {
+    return <input
+            value={this.state.course[name]}
+            style={s.input}
+            onChange={this.handleChange.bind(this, name)}
+          />
+  }
+
+  // renderInput :: String, Object { styles, extra }
+  renderTextArea = (name, extra) => {
+    return <textarea
+            value={this.state.course[name]}
+            style={s.input}
+            onChange={this.handleChange.bind(this, name)}
+          />
+  }
+
+  // renderInput :: String, Object { styles, extra }
+  renderHtmlInput = (name, extra) => {
     return <ContentEditable
             html={this.state.course[name]}
             disabled={false}
@@ -38,8 +57,6 @@ class Course extends Component {
   }
 
   render() {
-    console.log('state course', this.state.course)
-    console.log('props course', this.props.course)
     return (
       <form style={s.base} onSubmit={this.submitForm.bind(this)}>
 
@@ -55,10 +72,20 @@ class Course extends Component {
 
         <fieldset style={s.fieldset}>
 
-          <label>datePublishedStart</label>
+          <label>dateTimeStart (jjjj-mm-dd hh:mm)</label>
+          {this.renderInput('dateTimeStart')}
+
+          <label>dateTimeEnd (jjjj-mm-dd hh:mm)</label>
+          {this.renderInput('dateTimeEnd')}
+
+        </fieldset>
+
+        <fieldset style={s.fieldset}>
+
+          <label>datePublishedStart (jjjj-mm-dd)</label>
           {this.renderInput('datePublishedStart', this.state.course._id)}
 
-          <label>datePublishedEnd</label>
+          <label>datePublishedEnd (jjjj-mm-dd)</label>
           {this.renderInput('datePublishedEnd', this.state.course._id)}
 
         </fieldset>
@@ -69,14 +96,14 @@ class Course extends Component {
           {this.renderInput('bannerDescription', this.state.course._id)}
 
           <label>Banner button text</label>
-          {this.renderInput('bannerButtonText', this.state.course._id)}
+          {this.renderTextArea('bannerButtonText', this.state.course._id)}
 
         </fieldset>
 
         <fieldset style={s.fieldset}>
 
           <label>Details text</label>
-          {this.renderInput('detailsText', this.state.course._id)}
+          {this.renderHtmlInput('detailsText', this.state.course._id)}
 
         </fieldset>
 
@@ -104,7 +131,9 @@ var s = {
   input: {
     border: 'solid #000 1px',
     marginBottom: '15px',
-    padding: '5px'
+    padding: '5px',
+    display: 'block',
+    width: '100%'
   },
   btn: {
     display: 'block',
