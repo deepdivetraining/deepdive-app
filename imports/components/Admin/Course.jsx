@@ -38,8 +38,6 @@ class Course extends Component {
   }
 
   render() {
-    console.log('state course', this.state.course)
-    console.log('props course', this.props.course)
     return (
       <form style={s.base} onSubmit={this.submitForm.bind(this)}>
 

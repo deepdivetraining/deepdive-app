@@ -21,6 +21,21 @@ Meteor.methods({
     }, {
       upsert: true
     })
+  },
+  'Courses.signUp'(data) {
+
+    // if(! Meteor.userId()) return false;
+
+    // return CourseAttendees.insert({
+    //   authorId: Meteor.userId(),
+    //   title: data.title,
+    //   bannerDescription: data['bannerDescription'],
+    //   bannerButtonText: data['bannerButtonText'],
+    //   detailsText: data['detailsText'],
+    //   headerImageUrl: data['headerImageUrl']
+    // }, {
+    //   upsert: true
+    // })
   }
 })
 

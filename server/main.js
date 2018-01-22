@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
 // Import server methods
 import '/imports/server/methods/Courses.js';
@@ -16,4 +17,26 @@ Meteor.startup(() => {
   var port = "587";
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(username) + ':' + encodeURIComponent(password) + '@' + encodeURIComponent(server) + ':' + port;  
+});
+
+Meteor.methods({
+  sendEmail: function (mail) {
+    check([mail.to, mail.from, mail.subject], [String]);
+    // Let other method calls from the same client start running,
+    // without waiting for the email sending to complete.
+    this.unblock();
+    Email.send(mail);
+  },
+  doFullSync: function () {
+    SyncUtils.fullSync();
+  }
+});
+
+Accounts.onCreateUser(function (options, user) {
+  console.log('createUser', options, user);
+
+  // Meteor.call('sendEmail', 
+    // options.email
+
+  return user;
 });
