@@ -17,6 +17,7 @@ class Course extends Component {
   // handleChange :: String, Event -> StateChange
   handleChange = (name, e) => {
     this.state.course[name] = e.target.value
+    this.forceUpdate()
   }
 
   // submitForm :: void -> ?
@@ -57,7 +58,7 @@ class Course extends Component {
 
   render() {
     return (
-      <form style={s.base} onSubmit={this.submitForm.bind(this, () => {})}>
+      <form style={s.base} onSubmit={this.submitForm.bind(this)}>
 
         <header>
           <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/blockchainis.jpg" />
@@ -68,6 +69,16 @@ class Course extends Component {
 
         <label>Header image URL</label>
         {this.renderInput('headerImageUrl', this.state.course._id)}
+
+        <fieldset style={s.fieldset}>
+
+          <label>dateTimeStart (jjjj-mm-dd hh:mm)</label>
+          {this.renderInput('dateTimeStart')}
+
+          <label>dateTimeEnd (jjjj-mm-dd hh:mm)</label>
+          {this.renderInput('dateTimeEnd')}
+
+        </fieldset>
 
         <fieldset style={s.fieldset}>
 
