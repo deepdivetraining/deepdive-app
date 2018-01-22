@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import R from 'ramda';
+import moment from 'moment';
 import { Accounts, STATES } from 'meteor/std:accounts-ui';
 import { T9n } from 'meteor/softwarerero:accounts-t9n';
 
@@ -13,24 +14,55 @@ class CourseDetails extends Component {
 
   constructor(props) {
     super(props);
+
+    this.specialCode = 'DEEPDIVE-SIF';
+    this.state = {}
   }
 
   // handleChange :: String, Event -> StateChange
   handleChange = (name, e) => {
     this.state[name] = e.target.value
+    this.forceUpdate();
   }
 
   // submitForm :: void -> ?
   submitForm = (e) => {
     e.preventDefault();
-    this.state.courseId = this.props.course.courseId;
-    Meteor.call('Courses.signUp', this.state);
+
+    if( this.state.code.toUpperCase() != this.specialCode ) {
+      document.location = 'https://useplink.com/payment/Ww2sjrw9EtWhMApSr2vG';
+      return;
+    }
+
+    this.state.courseId = this.props.course._id;
+    Meteor.call('Courses.signUp', this.state, this.signUpWasSuccesful.bind(this));
+  }
+
+  signUpWasSuccesful = () => {
+
+    Meteor.call('sendEmail', {
+      to: this.props.user.emails[0].address,
+      from: 'DeepDive.training <info@deepdive.training>',
+      subject: 'Your DeepDive.training course: ' + this.props.course.title,
+      html: '<p>Thank you for signing up for <b>' + this.props.course.title + '</b>!</p>' +
+            '<p>For this course you only need a laptop.</p>' +
+            '<p>We look forward to see you at ' + moment(this.props.course.dateTimeStart).format('YYYY-DD-MM HH:mm') + '.</p>' +
+            '<p>Until then,</p>' +
+            '<p><a href="https://www.deepdive.training"><b>DeepDive.training</b></a><br /><a href="mailto:info@deepdive.training">info@deepdive.training</a></p>'
+    });
+
+    alert('An email confirmation has been sent.')
+
+    document.location = 'https://giphy.com/gifs/adventure-time-cartoons-confetti-9sVS967nejlqU/fullscreen';
+    //https://giphy.com/gifs/dog-japan-clapping-3ov9jV3qoiaGRPBrQk/fullscreen
+    // https://giphy.com/gifs/love-cute-l49JCSwMXyxHnYJws/fullscreen
+    // https://giphy.com/gifs/applause-followers-clap-11uArCoB4fkRcQ/fullscreen
   }
 
   renderSignIn() {
     return (
       <div>
-          <Accounts.ui.LoginForm {...{
+        <Accounts.ui.LoginForm {...{
           formState: STATES.SIGN_UP,
           loginPath: '/c/' + this.props.course._id
         }} />
@@ -40,27 +72,44 @@ class CourseDetails extends Component {
 
   renderSignUp() {
     return (
-      <div>
+      <form onSubmit={this.submitForm.bind(this)}>
 
-        <p>
-          You are logged in as {this.props.user.emails[0].address}
-        </p>
+        <label style={s.label}>
+          Course date/time
+        </label>
+        {moment(this.props.course.dateTimeStart).format('YYYY-DD-MM HH:mm')} - 
+        &nbsp;{moment(this.props.course.dateTimeEnd).format('HH:mm')}
 
-        <p>
-          Sign up for this course by clicking "Sign up" below.
-        </p>
+        <label style={s.label}>
+          Course price
+        </label>
 
-        <p>
-          If you like, you can leave an a note to the organisers below.
-        </p>
+        &euro; {this.state.code && this.state.code.toUpperCase() == this.specialCode ? '0' : '400'} VAT included
 
-        <textarea name="notes" onChange={this.handleChange.bind(this)} style={s.notes}></textarea>
+        <label style={s.label}>
+          Your email address
+        </label>
 
-        <button className="btn" style={s.btn}>
-          Sign up
+        {this.props.user.emails[0].address}
+        &nbsp;(<a style={{cursor: 'pointer'}} onClick={Meteor.logout}>logout</a>)
+
+        <label style={s.label}>
+          Do you have a invitation? Fill in your code:
+        </label>
+
+        <input placeholder="Your invitation code (optional)" name="code" onChange={this.handleChange.bind(this, 'code')} style={Object.assign({}, s.input, this.state.code && this.state.code.toUpperCase() == this.specialCode && {borderColor: '#0f0'})} />
+
+        <label style={s.label}>
+          If you like, you can leave a note to the organisers below.
+        </label>
+
+        <textarea placeholder="Note (optional)" name="notes" onChange={this.handleChange.bind(this, 'notes')} style={s.notes}></textarea>
+
+        <button type="submit" className="btn" style={s.btn}>
+          Sign up for this course
         </button>
 
-      </div>
+      </form>
     );
   }
 
@@ -70,8 +119,6 @@ class CourseDetails extends Component {
 
     if ( ! this.props.course.title )
       return (<div>Loading course</div>)
-
-    console.log(this.props.user)
 
     return (
       <div style={s.base}>
@@ -118,10 +165,22 @@ var s = {
   btn: {
     display: 'block',
   },
+  input: {
+    width: '300px',
+    maxWidth: '100%',
+    padding: '5px'
+  },
   notes: {
     width: '300px',
     maxWidth: '100%',
-    height: '100px'
+    height: '100px',
+    padding: '5px',
+    font: '400 13.3333px Arial'
+  },
+  label: {
+    display: 'block',
+    fontSize: '13px',
+    marginTop: '10px'
   }
 }
 

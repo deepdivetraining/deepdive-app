@@ -11,8 +11,6 @@ Meteor.methods({
     return Courses.update({
       _id: data._id == 'new' ? null : data._id
     }, {
-      dateTimeStart: new Date(data.dateTimeStart),
-      dateTimeEnd: new Date(data.dateTimeEnd),
       datePublishedStart: new Date(data.datePublishedStart),
       datePublishedEnd: new Date(data.datePublishedEnd),
       authorId: Meteor.userId(),
