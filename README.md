@@ -1,4 +1,4 @@
-# DeepDive.training v1.0.0
+# DeepDive.training v1.1.0
 
 [introduction text]
 
