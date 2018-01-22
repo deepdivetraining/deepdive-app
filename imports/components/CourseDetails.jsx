@@ -26,9 +26,7 @@ class CourseDetails extends Component {
             {this.props.course.title}
           </h3>
 
-          <p>
-            {this.props.course.detailsText}
-          </p>
+          <div dangerouslySetInnerHTML={{__html: this.props.course.detailsText}} />
 
           <a href={buttonUrl} className="btn" style={s.btn}>
             Sign up now
