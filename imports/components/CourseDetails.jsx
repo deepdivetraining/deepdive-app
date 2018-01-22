@@ -46,7 +46,7 @@ class CourseDetails extends Component {
       subject: 'Your DeepDive.training course: ' + this.props.course.title,
       html: '<p>Thank you for signing up for <b>' + this.props.course.title + '</b>!</p>' +
             '<p>For this course you only need a laptop.</p>' +
-            '<p>We look forward to see you at ' + moment(this.props.course.dateTimeStart).format('YYYY-DD-MM HH:mm') + '.</p>' +
+            '<p>We look forward to see you at ' + moment(this.props.course.dateTimeStart).format('YYYY-MM-DD HH:mm') + '.</p>' +
             '<p>Until then,</p>' +
             '<p><a href="https://www.deepdive.training"><b>DeepDive.training</b></a><br /><a href="mailto:info@deepdive.training">info@deepdive.training</a></p>'
     });
@@ -77,7 +77,7 @@ class CourseDetails extends Component {
         <label style={s.label}>
           Course date/time
         </label>
-        {moment(this.props.course.dateTimeStart).format('YYYY-DD-MM HH:mm')} - 
+        {moment(this.props.course.dateTimeStart).format('YYYY-MM-DD HH:mm')} - 
         &nbsp;{moment(this.props.course.dateTimeEnd).format('HH:mm')}
 
         <label style={s.label}>
