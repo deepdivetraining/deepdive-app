@@ -9,12 +9,11 @@ import CourseAttendeesModel from '../../models/CourseAttendees.js';
 class CourseAttendeeRow extends Component {
 
   getUser(userId) {
-    return Meteor.users.findOne(userId).emails[0].address;
+    return Meteor.users.findOne(userId);
   }
 
   getCourse(courseId) {
-    var course = Courses.findOne(courseId);
-    return course ? course.title : 'Course not found';
+    return Courses.findOne(courseId);
   }
 
   render() {
@@ -23,11 +22,11 @@ class CourseAttendeeRow extends Component {
         <tbody>
           <tr>
             <th width="150">Course</th>
-            <td>{this.getCourse(this.props.data.courseId)}</td>
+            <td>{this.getCourse(this.props.data.courseId) ? this.getCourse(this.props.data.courseId).title : ''}</td>
           </tr>
           <tr>
             <th>User</th>
-            <td>{this.getUser(this.props.data.userId)}</td>
+            <td>{this.getUser(this.props.data.userId) ? this.getUser(this.props.data.userId).emails[0].address : ''}</td>
           </tr>
           <tr>
             <th>Notes</th>
