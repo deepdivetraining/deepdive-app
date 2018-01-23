@@ -37,6 +37,10 @@ a {
   display: inline-block;
 }
 
+th {
+  text-align: left;
+}
+
 ul {
   margin-left: 20px;
 }

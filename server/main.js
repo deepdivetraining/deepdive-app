@@ -40,3 +40,11 @@ Accounts.onCreateUser(function (options, user) {
 
   return user;
 });
+
+Accounts.onLogin(function(user) {
+  var user = user.user;
+  var defaultRole = ['student'];
+  if (! user.roles){
+    Roles.addUsersToRoles(user, defaultRole)
+  };
+});
