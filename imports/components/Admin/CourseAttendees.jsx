@@ -60,6 +60,8 @@ CourseAttendees.defaultProps = {
 
 export default withTracker((props) => {
   Meteor.subscribe('CourseAttendees.all');
+  Meteor.subscribe('Courses.all');
+  Meteor.subscribe('Users.all');
 
   return {
     allCourseAttendees: CourseAttendeesModel.find({}, {sort: {_id: -1}}).fetch()

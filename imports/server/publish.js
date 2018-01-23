@@ -12,3 +12,7 @@ Meteor.publish('Courses.thisOne', function(courseId) {
 Meteor.publish('CourseAttendees.all', function() {
   return CourseAttendees.find({});
 });
+
+Meteor.publish('Users.all', function() {
+  return Users.find({});
+});
