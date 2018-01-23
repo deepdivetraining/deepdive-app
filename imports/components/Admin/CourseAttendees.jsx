@@ -64,6 +64,8 @@ export default withTracker((props) => {
   Meteor.subscribe('Users.all');
 
   return {
+    users: Meteor.users,
+    courses: Courses.find({}).fetch(),
     allCourseAttendees: CourseAttendeesModel.find({}, {sort: {_id: -1}}).fetch()
   }
 })(CourseAttendees);
