@@ -6,6 +6,8 @@ import R from 'ramda';
 import Courses from '../../models/Courses.js';
 import CourseAttendeesModel from '../../models/CourseAttendees.js';
 
+var i = 0;
+
 class CourseAttendeeRow extends Component {
 
   getUser(userId) {
@@ -17,25 +19,15 @@ class CourseAttendeeRow extends Component {
   }
 
   render() {
+    i++;
+
     return (
-      <table style={{width: '100%', paddingBottom: '10px', marginBottom: '10px', borderBottom: 'solid #000 1px'}}>
-        <tbody>
-          <tr>
-            <th width="150">Course</th>
-            <td>{this.getCourse(this.props.data.courseId) ? this.getCourse(this.props.data.courseId).title : ''}</td>
-          </tr>
-          <tr>
-            <th>User</th>
-            <td>{this.getUser(this.props.data.userId) ? this.getUser(this.props.data.userId).emails[0].address : ''}</td>
-          </tr>
-          {this.props.data.notes && (
-            <tr>
-              <th>Notes</th>
-              <td><b>{this.props.data.notes}</b></td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+      <tr>
+        <td>{i}</td>
+        <td>{this.getCourse(this.props.data.courseId) ? this.getCourse(this.props.data.courseId).title : ''}</td>
+        <td>{this.getUser(this.props.data.userId) ? this.getUser(this.props.data.userId).emails[0].address : ''}</td>
+        <td><b>{this.props.data.notes}</b></td>
+      </tr>
     );
   }
 }
@@ -45,7 +37,15 @@ class CourseAttendees extends Component {
     return (
       <div style={s.base}>
         <h3>Course attendees</h3>
-        {this.props.allCourseAttendees.length > 0 ? R.map((data) => <CourseAttendeeRow key={data._id} data={data} />, this.props.allCourseAttendees): ''}
+        <table style={{width: '100%', paddingBottom: '10px', marginBottom: '10px', borderBottom: 'solid #000 1px'}}>
+          <tr>
+            <th></th>
+            <th width="150">Course</th>
+            <th>User</th>
+            <th>Notes</th>
+          </tr>
+          {this.props.allCourseAttendees.length > 0 ? R.map((data) => <CourseAttendeeRow key={data._id} data={data} />, this.props.allCourseAttendees): ''}
+        </table>
       </div>
     );
   }
