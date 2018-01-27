@@ -31,7 +31,7 @@ class CourseAttendeeRow extends Component {
           {this.props.data.notes && (
             <tr>
               <th>Notes</th>
-              <td>{this.props.data.notes}</td>
+              <td><b>{this.props.data.notes}</b></td>
             </tr>
           )}
         </tbody>
