@@ -14,5 +14,5 @@ Meteor.publish('CourseAttendees.all', function() {
 });
 
 Meteor.publish('Users.all', function() {
-  return Users.find({});
+  return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
 });

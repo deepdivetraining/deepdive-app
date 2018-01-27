@@ -28,10 +28,12 @@ class CourseAttendeeRow extends Component {
             <th>User</th>
             <td>{this.getUser(this.props.data.userId) ? this.getUser(this.props.data.userId).emails[0].address : ''}</td>
           </tr>
-          <tr>
-            <th>Notes</th>
-            <td>{this.props.data.notes}</td>
-          </tr>
+          {this.props.data.notes && (
+            <tr>
+              <th>Notes</th>
+              <td>{this.props.data.notes}</td>
+            </tr>
+          )}
         </tbody>
       </table>
     );
