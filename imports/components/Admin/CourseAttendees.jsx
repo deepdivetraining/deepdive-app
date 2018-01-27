@@ -10,6 +10,12 @@ var i = 0;
 
 class CourseAttendeeRow extends Component {
 
+  constructor(props) {
+    super(props);
+
+    i++;
+  }
+
   getUser(userId) {
     return Meteor.users.findOne(userId);
   }
@@ -19,8 +25,6 @@ class CourseAttendeeRow extends Component {
   }
 
   render() {
-    i++;
-
     return (
       <tr>
         <td>{i}</td>
@@ -38,13 +42,15 @@ class CourseAttendees extends Component {
       <div style={s.base}>
         <h3>Course attendees</h3>
         <table style={{width: '100%', paddingBottom: '10px', marginBottom: '10px', borderBottom: 'solid #000 1px'}}>
-          <tr>
-            <th></th>
-            <th width="150">Course</th>
-            <th>User</th>
-            <th>Notes</th>
-          </tr>
-          {this.props.allCourseAttendees.length > 0 ? R.map((data) => <CourseAttendeeRow key={data._id} data={data} />, this.props.allCourseAttendees): ''}
+          <tbody>
+            <tr>
+              <th></th>
+              <th>Course</th>
+              <th>User</th>
+              <th>Notes</th>
+            </tr>
+            {this.props.allCourseAttendees.length > 0 ? R.map((data) => <CourseAttendeeRow key={data._id} data={data} />, this.props.allCourseAttendees): ''}
+            </tbody>
         </table>
       </div>
     );
