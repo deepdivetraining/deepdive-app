@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Accounts } from 'meteor/std:accounts-ui';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import Radium from 'radium';
 
 Accounts.ui.config({
   passwordSignupFields: 'EMAIL_ONLY_NO_PASSWORD',
@@ -31,7 +32,9 @@ class Header extends Component {
 
           {renderthis}
 
-          <h1 style={s.title}>Deep Dive blockchain trainingen</h1>
+          <h1 style={s.title}>
+            <a href="/" style={s.titleLink}>Deep Dive blockchain trainingen</a>
+          </h1>
 
           <p>
             Blockchain is changing society. We give <b>Deep Dive blockchain workshops</b>.
@@ -52,7 +55,13 @@ var s = {
   },
   title: {
     marginTop: 0
-  }
+  },
+  titleLink: {
+    color: '#fff',
+    'hover': {
+      textDecoration: 'underline'
+    }
+  },
 }
 
-export default Header;
+export default Radium(Header);
