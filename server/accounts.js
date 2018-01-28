@@ -28,3 +28,12 @@ Accounts.emailTemplates.verifyEmail = {
       return `Hey ${user}! Verify your e-mail by following this link: ${url}`;
    }
 };
+
+Accounts.emailTemplates.loginNoPassword = {
+  subject: (user) => {
+    return `Login on DeepDive.training`;
+  },
+  text: (user, url) => {
+    return `Hi! To login, simple click this link: ${url}`;
+  }
+}
