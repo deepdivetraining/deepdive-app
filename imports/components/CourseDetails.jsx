@@ -29,10 +29,10 @@ class CourseDetails extends Component {
   submitForm = (e) => {
     e.preventDefault();
 
-    if( this.state.code.toUpperCase() != this.specialCode ) {
-      document.location = 'https://useplink.com/payment/Ww2sjrw9EtWhMApSr2vG';
-      return;
-    }
+    // if( this.state.code.toUpperCase() != this.specialCode ) {
+    //   document.location = 'https://useplink.com/payment/Ww2sjrw9EtWhMApSr2vG';
+    //   return;
+    // }
 
     this.state.courseId = this.props.course._id;
     Meteor.call('Courses.signUp', this.state, this.signUpWasSuccesful.bind(this));
@@ -71,6 +71,14 @@ class CourseDetails extends Component {
   }
 
   renderSignUp() {
+
+    // Price
+        // <label style={s.label}>
+        //   Course price
+        // </label>
+
+        // &euro; {this.state.code && this.state.code.toUpperCase() == this.specialCode ? '0' : '400'} VAT included
+
     return (
       <form onSubmit={this.submitForm.bind(this)}>
 
@@ -79,12 +87,6 @@ class CourseDetails extends Component {
         </label>
         {moment(this.props.course.dateTimeStart).format('YYYY-MM-DD HH:mm')} - 
         &nbsp;{moment(this.props.course.dateTimeEnd).format('HH:mm')}
-
-        <label style={s.label}>
-          Course price
-        </label>
-
-        &euro; {this.state.code && this.state.code.toUpperCase() == this.specialCode ? '0' : '400'} VAT included
 
         <label style={s.label}>
           Your email address
