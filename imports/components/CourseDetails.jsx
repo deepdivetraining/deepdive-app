@@ -148,7 +148,7 @@ class CourseDetails extends Component {
   
             <h2>Sign up now</h2>
 
-            {this.props.user && this.props.user._id ? this.renderCourseDoc() : this.renderSignIn()}
+            {this.props.user && this.props.user._id ? this.renderSignUp() : this.renderSignIn()}
 
           </div>
 
