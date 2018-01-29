@@ -3,6 +3,8 @@ import { Accounts } from 'meteor/std:accounts-ui';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import Radium from 'radium';
 
+import MailChimpSubscribe from './MailChimpSubscribe.jsx';
+
 Accounts.ui.config({
   passwordSignupFields: 'EMAIL_ONLY_NO_PASSWORD',
   loginPath: '/login',
@@ -39,6 +41,8 @@ class Header extends Component {
           <p>
             Blockchain is changing society. We give <b>Deep Dive blockchain workshops</b>.
           </p>
+
+          <MailChimpSubscribe />
 
         </div>
       </div>

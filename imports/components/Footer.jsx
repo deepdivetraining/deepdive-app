@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import MailChimpSubscribe from './MailChimpSubscribe.jsx';
+
 class UserBar extends Component {
   render() {
     return (
@@ -34,17 +36,7 @@ class Header extends Component {
 
           <hr style={s.hr} />
 
-          <div>
-            <form action="https://training.us17.list-manage.com/subscribe/post?u=0463dd05b80d6019994de2b17&amp;id=797ad7df86" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
-              <input style={s.input} placeholder="Your email address" type="email" name="EMAIL" className="email" id="mce-EMAIL" required />
-              <div style={{position: 'absolute', left: '-5000px'}} aria-hidden="true">
-                <input type="text" name="b_0463dd05b80d6019994de2b17_797ad7df86" tabIndex="-1" value="" />
-              </div>
-              <div className="clear">
-                <input type="submit" style={s.btn} value="Subscribe to the newsletter" name="subscribe" id="mc-embedded-subscribe" className="btn" />
-              </div>
-            </form>
-          </div>
+          <MailChimpSubscribe />
 
         </div>
       </div>
