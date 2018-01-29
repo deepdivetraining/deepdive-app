@@ -15,7 +15,7 @@ class CourseDetails extends Component {
   constructor(props) {
     super(props);
 
-    this.specialCode = 'DEEPDIVE-SIF';
+    this.specialCode = 'DEEPDIVE-SIF-was-geslaagd';
     this.state = {}
   }
 
