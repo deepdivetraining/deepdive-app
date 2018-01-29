@@ -113,6 +113,16 @@ class CourseDetails extends Component {
     );
   }
 
+  renderCourseDoc() {
+    return (
+      <div>
+        <a href="https://docs.google.com/document/d/1af0TdlmDgwPp9Sf7-6rcB8WCfkLWxvFjJrV43pVPvIo/edit?usp=sharing" target="_blank" className="btn" style={s.btn}>
+          View the <i>Starting Ethereum development</i> course
+        </a>
+      </div>
+    )
+  }
+
   render() {
 
     buttonUrl = 'mailto:info@deepdive.training?subject=Signup: ' + this.props.course.title;
@@ -138,7 +148,7 @@ class CourseDetails extends Component {
   
             <h2>Sign up now</h2>
 
-            {this.props.user && this.props.user._id ? this.renderSignUp() : this.renderSignIn()}
+            {this.props.user && this.props.user._id ? this.renderCourseDoc() : this.renderSignIn()}
 
           </div>
 

@@ -50,7 +50,7 @@ class CourseAttendees extends Component {
               <th>Notes</th>
             </tr>
             {this.props.allCourseAttendees.length > 0 ? R.map((data) => <CourseAttendeeRow key={data._id} data={data} />, this.props.allCourseAttendees): ''}
-            </tbody>
+          </tbody>
         </table>
       </div>
     );
