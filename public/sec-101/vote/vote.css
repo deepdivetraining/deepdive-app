@@ -1,5 +1,6 @@
 body.container {
-  max-width: 800px;
+  max-width: 400px;
+  padding: 15px;
 }
 img {
   max-width: 100%;
@@ -25,3 +26,44 @@ img {
   border: none;
   cursor: pointer;
 }
+
+/* Referendum */
+
+.ticket {
+  background-color: #ebebeb;
+  border: solid #000 1px;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+.header {
+  font-weight: bold;
+  margin: 10px 0;
+  font-size:20px;
+}
+.header b {
+  display: block;
+  font-size: 30px;
+}
+button {
+  background: transparent;
+  display: block;
+  border: solid #000 1px;
+  width: 200px;
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+  margin: 5px 0;
+}
+button div {  
+  font-weight: normal;
+  display:inline-block;
+  font-size: 15px;
+}
+button div::before {
+  content: "(";
+}
+button div::after {
+  content: ")";
+}
+

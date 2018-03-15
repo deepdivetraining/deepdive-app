@@ -12,44 +12,41 @@
   <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
   <link href='./vote.css' rel='stylesheet' type='text/css'>
 
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+
 </head>
 <body class="container">
 
-  <h1>Raadgevend referendum</h1>
-
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Antwoord</th>
-          <th>Aantal stemmen</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Voor</td>
-          <td id="candidate-1"></td>
-        </tr>
-        <tr>
-          <td>Tegen</td>
-          <td id="candidate-2"></td>
-        </tr>
-        <tr>
-          <td>Blanco</td>
-          <td id="candidate-3"></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="header">
+    <b>Stembiljet</b>
+    raadgevend referendum
   </div>
 
   <p>
-    <a href="https://www.deepdive.training" target="_blank">DeepDive.training</a><br />
-    Twitter: <a href="https://twitter.com/deepdivetrain" target="_blank">@deepdivetrain</a>
+    <img src="https://i2.wp.com/markernieuws.com/mobile/wp-content/uploads/2018/03/11655.jpg?w=800&ssl=1" />
   </p>
 
-  <button onclick="voteForCandidate('good')">VOOR</button>
-  <button onclick="voteForCandidate('bad')">TEGEN</button>
-  <button onclick="voteForCandidate('ugly')">BLANCO</button>
+  <div class="intro">
+    Bent u voor of tegen de Wet op de inlichtingen- en veiligheidsdiensten 2017?
+  </div>
+
+  <div class="ticket">
+    <p>
+      U stemt door een witte stip rood te kleuren.
+    </p>
+
+    <button onclick="voteForCandidate('good')">VOOR <div id="candidate-1"></div></button>
+    <button onclick="voteForCandidate('bad')">TEGEN <div id="candidate-2"></div></button>
+    <button onclick="voteForCandidate('ugly')">BLANCO <div id="candidate-3"></div></button>
+  </div>
+
+  <div class="footer">
+    <a href="https://www.deepdive.training" target="_blank">DeepDive.training</a><br />
+    Twitter: <a href="https://twitter.com/deepdivetrain" target="_blank">@deepdivetrain</a>
+  </div>
+
   <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
   <script src="./vote.js"></script>
