@@ -1,3 +1,4 @@
+
 <!--
  Based on: https://gist.githubusercontent.com/maheshmurthy/f6e96d6b3fff4cd4fa7f892de8a1a1b4/raw/e7e7d4e063c5bdd4fb6bc17d7b75370de42d48ee/index.html
 -->
@@ -26,15 +27,15 @@
       </thead>
       <tbody>
         <tr>
-          <td>good (voor)</td>
+          <td>Voor</td>
           <td id="candidate-1"></td>
         </tr>
         <tr>
-          <td>bad (tegen)</td>
+          <td>Tegen</td>
           <td id="candidate-2"></td>
         </tr>
         <tr>
-          <td>ugly (blanco)</td>
+          <td>Blanco</td>
           <td id="candidate-3"></td>
         </tr>
       </tbody>
@@ -46,10 +47,9 @@
     Twitter: <a href="https://twitter.com/deepdivetrain" target="_blank">@deepdivetrain</a>
   </p>
 
-  <input type="text" id="candidate" />
-
-  <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a>
-
+  <button onclick="voteForCandidate('good')">VOOR</button>
+  <button onclick="voteForCandidate('bad')">TEGEN</button>
+  <button onclick="voteForCandidate('ugly')">BLANCO</button>
   <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
   <script src="./vote.js"></script>

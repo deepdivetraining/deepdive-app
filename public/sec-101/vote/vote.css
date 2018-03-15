@@ -5,6 +5,7 @@ img {
   max-width: 100%;
 }
 .table {
+  width: auto;
   margin-bottom:0;
 }
 .btn-primary {
